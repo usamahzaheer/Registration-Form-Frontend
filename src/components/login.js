@@ -9,7 +9,7 @@ export default class Login extends Component {
         super();
         const token = localStorage.getItem("token")
         let loggedIn = true
-        if(token== null){
+        if (token == null) {
             loggedIn = false
         }
         this.state = {
@@ -18,11 +18,11 @@ export default class Login extends Component {
             password: "",
             nameError: "",
             passwordError: "",
-            loggedIn:""
+            loggedIn: ""
         }
     }
 
-// valid func for applying basic validation rules against user input
+    // valid func for applying basic validation rules against user input
     valid() {
         // if "name" object does'nt have "@" in his text & password lenght is less 6 then 
         if (!this.state.name.includes("@") && this.state.password.length < 6) {
@@ -43,27 +43,41 @@ export default class Login extends Component {
             return true;
         }
     }
-    submit()
-    {
-      this.setState({nameError:"", passwordError:""})
-      // to authenticate using local storage i set mock email & password. so you will only logged in using these values. 
-    //  although valid function have conditions to check basic validation. 
-        if(this.valid() && this.state.name==="some@gmail.com" && this.state.password === "12345678" )
-        {  
-            //comment command cntl k + c
-            //for authentication purpose we have to store token in local storage
-            localStorage.setItem("token", "ieihfiwerhfihiwirihiu")
-             this.setState(
-          {
-              loggedIn:true
-          }
-      )
+    submit() {
+        this.setState({ nameError: "", passwordError: "" })
+        // to authenticate using local storage i set mock email & password. so you will only logged in using these values. 
+        //  although valid function have conditions to check basic validation. 
+        if (this.valid()) {
+            {
+                console.warn("state", this.state)
+                let request = {
+
+                    email: this.state.name,
+                    password: this.state.password
+                }
+                console.log(request);
+                fetch('http://localhost:3002/api/users/login', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify(request)
+                }).then((result) => {
+                    result.json().then((resp) => {
+                        console.log(resp);
+                        // save token value in local storage
+                        localStorage.setItem("auth",JSON.stringify(resp.token))
+                    })
+                })
+            }
             alert("form has been submited")
+
+
         }
-     
     }
     render() {
-        if(this.state.loggedIn){
+        if (this.state.loggedIn) {
             // redirected to admin component untill we are logged in
             return <Redirect to={"/Admin"} />
         }
@@ -73,10 +87,10 @@ export default class Login extends Component {
                 <div className="label"><label >Email Address</label></div>
                 {/* on changing the input field by user, that text value will be store in "name" object which store in constructor func using setstate property */}
                 <input placeholder="Enter Email" type="text" onChange={(event) => { this.setState({ name: event.target.value }) }} />
-               {/* eror message will displayed depending on value store in nameError object */}
+                {/* eror message will displayed depending on value store in nameError object */}
                 <p style={{ color: "red" }}>{this.state.nameError}</p>
-               <div className="label"><label>Password</label></div> 
-               {/* same as above input field except object which is password in this case */}
+                <div className="label"><label>Password</label></div>
+                {/* same as above input field except object which is password in this case */}
                 <input placeholder="Enter Password" type="password" onChange={(event) => { this.setState({ password: event.target.value }) }} />
                 <p style={{ color: "red" }}>{this.state.passwordError}</p>
                 {/* on click submit button submit() fuction will call, it's define above */}

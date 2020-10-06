@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/css/main.065487db.chunk.css",
+    "main.js": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/js/main.a64d5b1f.chunk.js",
+    "main.js.map": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/js/main.a64d5b1f.chunk.js.map",
+    "runtime-main.js": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/js/runtime-main.4db75a67.js",
+    "runtime-main.js.map": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/js/runtime-main.4db75a67.js.map",
+    "static/js/2.c91d7547.chunk.js": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/js/2.c91d7547.chunk.js",
+    "static/js/2.c91d7547.chunk.js.map": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/js/2.c91d7547.chunk.js.map",
+    "index.html": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/index.html",
+    "precache-manifest.6c08a87c0e1e41415147bd2b3d1482e2.js": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/precache-manifest.6c08a87c0e1e41415147bd2b3d1482e2.js",
+    "service-worker.js": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/service-worker.js",
+    "static/css/main.065487db.chunk.css.map": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/css/main.065487db.chunk.css.map",
+    "static/js/2.c91d7547.chunk.js.LICENSE.txt": "/Reactjs-SignIn-SignUp-UI-with-Token-Authentication/static/js/2.c91d7547.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4db75a67.js",
+    "static/js/2.c91d7547.chunk.js",
+    "static/css/main.065487db.chunk.css",
+    "static/js/main.a64d5b1f.chunk.js"
+  ]
+}

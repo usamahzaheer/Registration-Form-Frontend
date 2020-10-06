@@ -5,11 +5,11 @@ export default class Admin extends Component {
     constructor(){
         super()
         // taken var get value taken string which is stored in 
-        const token = localStorage.getItem("token")
+        const auth = localStorage.getItem("auth")
         // declaring and initializing loggedin var
         let loggedIn = true
-        // if token value have null, it means user does not sign in. it will not let user to stay into admin component 
-        if(token== null){
+        // if auth (in which token value has been stored) value have null, it means user does not sign in. it will not let user to stay into admin component 
+        if(auth== null){
             // so loggedin var have false value in it
             loggedIn = false
         }

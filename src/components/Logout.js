@@ -7,7 +7,7 @@ export default class Logout extends Component {
     constructor(){
         super()
         // clear token value from local storage.. now app will not load if we will go to admin page
-        localStorage.removeItem("token")
+        localStorage.removeItem("auth")
     }
     render() {
         return (

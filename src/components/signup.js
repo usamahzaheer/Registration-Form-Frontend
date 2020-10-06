@@ -6,10 +6,11 @@ export default class Signup extends Component {
     constructor() {
         super();
         this.state = {
-            name: "",
-            password: "",
+           
             firstname: "",
             lastname: "",
+            name: "",
+            password: "",
             nameError: "",
             passwordError: ""
         }
@@ -34,7 +35,29 @@ export default class Signup extends Component {
     submit() {
         this.setState({ nameError: "", passwordError: "" })
         if (this.valid()) {
-            alert("You are successfully signed up");
+            {
+                console.warn("state", this.state)
+                let request =  {
+                    first_name: this.state.firstname,
+                    last_name: this.state.lastname,
+                    email: this.state.name,
+                    password: this.state.password
+                }
+                console.log(request);
+                fetch('http://localhost:3002/api/users/', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                      },
+               
+                    body: JSON.stringify( request)
+                }).then((result) => {
+                    result.json().then((resp) => {
+                        console.log(resp);
+                    })
+                })
+            }
+           
 
         }
     }
